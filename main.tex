@@ -1,0 +1,139 @@
+
+\documentclass[a4paper]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{subcaption}
+\usepackage{subfig}
+\usepackage[authoryear]{natbib}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+%\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+%% My definition
+\newcommand{\toshi}{\textcolor{blue}}
+\newcommand{\laurie}{\textcolor{red}}
+\newcommand{\rishi}{\textcolor{green}}
+\newcommand{\iago}{\textcolor{purple}}
+
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+\title{Stock Assessment Grids: Work Smarter Not Harder}
+\author{Laurie Kell, Iago Mosqueira, Henning Winker, \\Rishi Sharma, Toshihide  Kitakado, Max Cardinale}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+%The adoption of the Precautionary Approach to fisheries management requires a formal consideration of uncertainty. In the stock assessment process uncertainty about resource dynamics are commonly represented by alternative model structure, datasets and parameters. The use of integrated assessment models has meant that fitting to all available data has become commonplace as scientists seek to use the models to capture all knowledge about stock size and productivity. Therefore, ensembles of models are increasingly being implemented with scenarios based on fixing hard to estimate parameters, and to explore data weighting. The same approach is sued for conditioning Operating Models for use in Management Startegy Evaluation. Key questions to answer in both cases is does the model fit the data, are the resource dynamics plausible, and are the results robust. 
+
+\end{abstract}
+
+\subsection*{Outline}
+
+The paper addressed the topics in the ICES Theme session on model error: namely
+
+\begin{description}
+    \item[Model ensembles (within and between models)]
+    Used within model grid and created multiple factors and interactions using SS grid.  Then looked at fits to data, and used hindcasting to check for overfitting and to evaluate simple prediction skill.
+    \item[Identification and testing of structural uncertainties]
+    The grid was based on factors and levels for difficult to estimate parameters and data weighting. The performance of multimodel ensemble forecasts depend on the weights given to the different models within the ensemble when post processing. While in MSE the robustness of a MP depends on the choice of OMs, We therefore compare equal weighting of models to skill-based and AIC weighting
+    \item[Sensitivity analysis]
+    Used regression tree to identify impact of factors.
+    \item[Gaps and needs for developing ensembles]
+    SW is a simple way of comparing within and across model, something that can not be done using AIC
+    \item[Evaluating trade-offs between one versus multiple models] It was shown that model error > estimation error. A key weighting issue was how to select scenarios for inclusion in the grid.
+    \item[Combining and communicating results]
+    Kobe and Majuro plots, summarise stock wrt targets and limits.
+    \item[Uncertainties throughout the stock assessment and MSE process] Need to look at emergent properties \& nature of time series for MSE
+\end{description}
+
+\newpage
+\section*{Introduction}
+
+\begin{itemize}
+    \item Use the full grid of IOTC Albacore to pose a procedure for developing and screening OMs.
+    \item The three main criteria for accepting a OM when conditioned using a stock assessment paradigm are i) does someone want it included; ii) does it fit the data; and iii) does it describe the dynamics, i.e. does it have prediction skill?
+    \item The weighting criteria of Kell and Levontin and Maunder et al., fall into three categories i) expert opinion ii) goodness of fit; and iii) plausibility. The total number of metrics used for weighting should be minimised, complementary and nonredundant. Therefore, for i) we argue for the use of elicitation since the biggest weighting factor is whether a model is chosen in the first place; ii)use runs tests to check the fit, and prediction residuals to check for overfitting; and  iii) conduct a hindcast to estimate simple prediction skill. 
+    \item When developing the design for ensembles or OMs first it is necessary to choose a base case and then the main effect for consideration
+    \item Once the main effects are chosen the next step is to agree on interactions. A problem here is that hypotheses are likely to be confounded e.g. i) is High M and low steepness realistic? ii) relative weighting of ESS and CPUE CV; and iii) dome shaped selection or senescence.
+\end{itemize}
+
+\newpage
+\section*{Material and Methods}
+\subsection*{Material}
+\subsection*{Methods}
+\subsubsection*{Estimation Error}
+\subsubsection*{Runs test}
+\subsubsection*{Prediction Skill}
+\subsubsection*{P-values}
+\subsubsection*{Weighting}
+
+
+\newpage
+\input{results}
+
+\newpage
+\input{discussion}
+
+
+
+\newpage\clearpage
+\bibliographystyle{abbrvnat}
+\bibliography{references.bib}
+
+\clearpage
+\newpage
+
+\section*{Tables}
+
+\begin{table}[ht]
+\label{tab:grid}
+\caption{Operating Model Scenarios; Base Case values in bold.}  
+\begin{center}
+\label{tab:datasumm}
+\small
+
+\begin{tabular}{|lccc|}
+
+\hline
+Factor & {Levels (N)} & {$\prod$ N} & {Values} \\ %& {Prior} & {Weighting}\\
+\hline\hline
+{Natural mortality (M)& {5}}  & {  5}  & { 0202  \textbf{0303} 0404 0403 0402}    \\
+{Steepness of the stock-recruitment relationship}}& {3} 	 & {15}  & { \textbf{.7}; 0.8; 0.9} \\
+{Variability of recruitment (sigmaR)}& {2} 	 & { 30}  & { \textbf{0.4}; 0.6} \\
+{Effective Sampling Size of the length composition data (ESS)}& {3} & { 90}  & { 20; \textbf{50}; 100} \\
+{CV for fit to CPUE (cpuecv)}& {4} 	 & { 360}  & { 0.2;  \textbf{0.3}; 0.4; 0.5} \\
+{Yearly increase in catchability coefficient of CPUE (llq)}& {2} 	 & {  720}  & { \textbf{0\%}; 0.25\%} \\
+  {Selectivity (llsel)}& {2}}& {1440}} & { \textbf{logistic} double normal} \\
+\hline
+
+
+\end{tabular}
+\end{center}
+\end{table}
+\input{figures}
+
+\end{document}
+
+ $w_M = \frac{exp(-(1/2)\text{AIC}_M)}{\sum_{M\in S}{exp(-(1/2)\text{AIC}_M)}}$
+\include{paper}
+
+
+
+
+
+
+

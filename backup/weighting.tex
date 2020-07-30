@@ -1,0 +1,47 @@
+\subsubsection*{Weighting}
+
+%Considering alternative structures and datasets means that it difficult to select models using metrics such as AIC. Therefore retrospective analysis is commonly used to evaluate the stability of stock assessment estimates of model estimates such as stock biomass and exploitation level. Stability is measured using Mohn's $\rho$ a measure of bias. Shrinking estimates of stock status in the last year to the recent mean can help reduce Mohn's $\rho$. Shrinkage, in statistics, however, is used to reduce mean squared error (MSE), at the expense of bias. The use of model based quantities, however, means that bias can not be quantified, and may result in forecasts having little prediction skill. We therefore extend retrospective analyses to include prediction. 
+
+\begin{description}
+\item[Expert] Stakeholder concerns and expert opinion, assigned “a-priori”, without consideration of model fit.
+ \begin{itemize}
+    \item How were scenarios selected?, e.g. through an elicitation process \citep{leach2014identification}?
+\end{itemize}
+\item[Convergence] Model convergence criteria of the estimation algorithm. 
+\begin{itemize}
+    \item max gradient? This is normally achieved by jittering, however this is difficult to do in this case where 1440 grids are run. Therefore we explore what factors result in poor convergence.
+\end{itemize}
+\item[Diagnostics] Reliability of the model based on residual diagnostics
+ \begin{itemize}
+    \item Use runs tests to check for randomness in the residuals 
+\end{itemize}
+ \item[Fit] The fit of the model to the data
+ \begin{itemize}
+    \item Likelihood, we do not use AIC due to problems in weighting and the fact that since the number of parameters only changes for 1 scenario the AIC and likelihoods are equivalent. Using the likelihood also allows us to look at data components.
+\end{itemize}
+\end{itemize}
+\item[Plausible parameters] The plausibility of the estimates of the parameters representing the dynamics
+ \begin{itemize}
+    \item  $r$, $K$ and $p$, i.e. production functions
+\end{itemize}
+\item[Plausible results] Time series dynamics and process error.
+\begin{itemize}
+    \item ACF of biomass
+    \item clockwise SP
+    \item var(SP)
+\end{itemize}
+\item[Stability] Retrospective
+\begin{itemize}
+    \item traditional Mohn's $\rho$
+\end{itemize}
+\item[Prediction Skill] Model outputs
+ \begin{itemize}
+    \item 3 year ahead Mohn's $\rho$ 
+\end{itemize}
+\item[Prediction Skill] Model free
+\begin{itemize}
+    \item MASE for CPUE
+\end{itemize}
+\end{description}
+
+Once the weighting components have been agreed 

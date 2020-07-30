@@ -1,0 +1,62 @@
+\subsection*{Retrospective Analysis}
+
+In retrospective analysis observations are sequentially removed from the terminal year, the model is then refitted to the truncated series to see if there are any systematic patterns. Retrospective bias can be evaluated using Mohn's rho \parencite{mohn1999retrospective}.
+
+\begin{equation}
+\label{eqn:mohn0}
+\rho_M = \disp \sum_{t=T-n}^{T-1} \frac{\hat{y}_{(1:t),t}-\hat{y}_{(1:T),t}}{\hat{y}_{(1:T),t}}, 
+\end{equation}
+
+\noindent
+where $\hat{y}$ denotes a model based quantity such as estimated biomass. The value with suffix $\hat{y}_{(1:T),t}$ means a value estimated at time $t$ from the full series running from time 1 to $T$, and $\hat{y}_{(1:t),t}$ is the value estimated using a retrospective data window from 1 to $t (\leq T)$. 
+
+In this paper, we use a variant of the original $\rho_M$ by taking the mean: namely 
+\begin{equation}
+\label{eqn:mohn}
+\rho_{Mr} = \disp \frac{1}{n} \sum_{t=T-n}^{T-1} \frac{\hat{y}_{(1:t),t}-\hat{y}_{(1:T),t}}{\hat{y}_{(1:T),t}} 
+\end{equation}
+
+This metric is an average of relative differences at the final time of each window. Therefore it is a measure of relative retrospective `bias' (scale-free) in a statistical sense. The metric tends to be applied not on the log but the original scale because both the directions of positive and negative bias are regarded as being equivalent.
+
+There are problems with the use of this metric, since for reference values which are low relative to the alternative, there is no upper limit, while in the reverse case the error cannot exceed 1.0. Therefore when using this metric it is usual to use a lower bound of -0.15 and an upper bound of 0.20 to identify acceptable performance \parencite{hurtado2014looking}.
+
+\subsection*{Hindcast}
+
+Hindcasting, the primary focus in this paper, is an extension of retrospective analysis which projects several steps forward beyond the retrospective data window to quantify the prediction skill of a model. Theoretically, the projection period is to the end of the historical time period. However, in practice, a step size of one or several years ahead is chosen reflecting the time horizon required for robust management advice; considering non-small process stochasticity in fishery population dynamics and non-ignorable extents of observation uncertainty. 
+
+Hindcasting like traditional retrospective analysis involves fitting a model using a tailcutting procedure, where data are deleted sequentially for $n$ years, i.e. from year $T-n$ through to the last year. The additional step in the hindcast is that then the data from $T - n + 1$ are used to make predictions of what will happen in years $T - n$ through $T$. 
+
+\begin{algorithm}[!ht]
+\begin{algorithmic}[1]
+\State Fit model up to and including terminal year $T$
+\For{$t$ = $T - S$ to n} 
+\State fit model to data up to time $t$ \For {$i$ = $t$ to $t + S$} 
+\State Estimate $\hat{y_i}$
+\EndFor
+\EndFor
+\caption{Hindcast}
+\label{Hindcast}
+\end{algorithmic}
+\end{algorithm}
+
+When conducting the hindcast it is assumed that modelled variables are observable, processes exhibit constancy of structure in time, including those not specified in the model, and that collection of accurate and sufficient data is possible \parencite{hodges1992you}.
+
+We  define `retro-period' and `hc-period' as `the period of shrunken data set for retrospective model fitting' and `future time period with a certain projection step (say $S \geq 1$) for hindcasting after retro-period''. Assessment cycles are typically for three years in most tuna Regional Fisheries Management Organisations and so we projected the truncated estimates for three years. 
+
+\subsection*{Prediction Skill}
+
+The use of model based quantities means that bias can not actually be quantified. For example a reduction in both relative error (a measure of bias) and mean squared error (a measure of variance) can be achieved by shrinking terminal estimates towards recent historical values, at the expense of prediction skill. The absence of retrospective patterns in model based quantities, therefore, while reassuring, is not sufficient for model validation, and model-free validation using prediction residuals should be used as well.  In this case the model is used to generate pseudo data, e.g. predicted abundance index. For evaluating prediction skill, there are several metrics for model-dependent and model-free validations. 
+
+Let $\hat{y}_{(1:t),t+S}$ be a projected value at time $t+S$ in an hc-period based on the conditioned model with data from a retro-period $(1,t)$. The modified Mohn's rho for prediction bias and absolute error is then
+\begin{equation}
+\label{eqn:mohn2}
+\rho_{M_p} = \disp \frac{1}{n-S+1} \sum_{t=T-n}^{T-S} 
+\frac{\hat{y}_{(1:t),t+S}-\hat{y}_{(1:T),t+S}}{\hat{y}_{(1:T),t+S}} 
+%\ \mbox{[rho for projection-bias]}
+\end{equation} 
+
+This is a simple extension of Mohn's rho to evaluate the prediction skill of a model because all the values are produced under the model assumption. In this sense, it is a model-dependent consistency check of prediction skill. 
+
+%Inspection of residuals is a common way to determine a model’s goodness-of-fit \parencite{cox1968general}, since  non-random patterns in the residuals may indicate model misspecification, serial correlation in sampling/observation error, or heteroscedasticity. When inspecting residuals, however, there is a danger of hypothesis fishing/testing?, i.e. [I read the sentence below a few times but could not make sense of it probably need revising?] choosing a scenario retrospectively retrospect, while if multiple true hypotheses are tested it is likely that some of them will be rejected. Therefore it is valuable to reserve part of the data to test for validation, so that a pattern’s significance is not tested on the same data set which suggested the pattern \parencite{thygesen2017validation}. For this reason we conduct also a model-free hindcast to estimate prediction skill.
+
+$\rho_{M_p}$ is a measure of prediction skill but "model based", however, validation requires that the system be observable and measurable and so model free quantities should be used. We therefore used the mean absolute scaled error to evaluate prediction skill. MASE is a robust and easy to interpret statistic for evaluating prediction skill \parencite{hyndman2006another}. MASE evaluates a model's prediction skill relative to a na\" {i}ve baseline prediction, based on previous observation. A prediction is said to have skill if it improves the model forecast compared to the baseline, i.e. has a value < 1.

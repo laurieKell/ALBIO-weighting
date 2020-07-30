@@ -1,0 +1,223 @@
+
+\iffalse
+\section*{ICES Background}
+
+Observational data are imperfect, and predictive models based on those data represent simplifications of how some aspect of the world works. Thus, in the fisheries advisory process (e.g., development of catch advice using stock assessments, evaluation of management strategies), it is clear that our analyses are fraught with uncertainty, stemming from uncertainty in the input data (observations) or from the \laurie{structure (degree of simplification and validity of assumptions)} of the methods and models employed. Input uncertainty is easier to measure using standard statistical procedures, and to address through improvements to survey designs, sampling schemes, and statistical methods. \laurie{Structural uncertainties however, are more intangible as they often represent “known unknowns” - i.e., we know there are limitations to the methods and models, but it is difficult to describe and measure them without comprehensive analyses, such as simulation testing or cross-validation}.
+
+With the development of more advanced analytical frameworks that support implementation of  machine learning, artificial intelligence, and ensemble modeling, we invite fisheries scientists to a session to present advances in \laurie{identifying, quantifying and dealing with structural uncertainties in the fisheries science advisory process.}
+
+We invite contributions on the following themes:
+
+\begin{itemize}
+    \item \laurie{Uncertainties throughout the stock assessment and management strategy evaluation process}
+    \item \laurie{Identification and testing of plausible structural hypotheses, and structural uncertainties}
+    \item \laurie{Sensitivity analysis}
+    \item \laurie{Model ensembles (within and between models) see previous \href{ https://www.fisheries.noaa.gov/national/population-assessments/noaa-fisheries-13th-national-stock-assessment-workshop-report-released}{NOAA workshop} }
+    \item \laurie{Gaps and needs for developing ensembles}
+    \item \laurie{Evaluating trade-offs between one versus multiple models}
+    \item \laurie{Combining and communicating results across ensemble members and stakeholders}
+\end{itemize}
+
+\maketitle
+
+\begin{abstract}
+\end{abstract}
+\fi
+
+\maketitle
+
+
+\begin{itemize}
+    \item The adoption of the Precautionary Approach to fisheries management \citep[PA,][]{garcia1996precautionary} requires a formal consideration of uncertainty. In the stock assessment process uncertainty about resource dynamics are commonly represented by alternative model structure, datasets and parameters. 
+    
+    \item The use of integrated assessment models has meant that fitting to all available data has become commonplace as scientists seek to use the models to capture all knowledge about stock size and productivity \citep{hilborn2003state}. 
+    
+    \item %There has also been a trend in stock assessment toward the use of integrated analysis that combines several sources of data into a single model by a joint likelihood  \citep[e.g.][]{doubleday1976least,fournier1982general,maunder2013review}. 
+    Problems remain, however, including a lack of information on processes such as density dependence, non-stationarity and conflicts between datasets. 
+    
+    \item Therefore, ensembles are often implemented with scenarios for hard to estimate parameters, such as natural mortality and the steepness of the stock recruitment relationship, and to explore data weighting.  
+    
+    \item Key questions are is my model valid? and do I have sufficient data and knowledge to fit it?  We therefore used hindcasting to estimate prediction skill as a tool for validation and weighting of scenarios. 
+    
+    \item The performance of multimodel ensembles depends on the weights given to the different models of the ensemble when post processing. This paper compares equal weighting of models (EW) to simple skill-based weighting (SW), using Mohn's $\rho$ as simple model performance indicator.
+    
+\end{itemize}
+
+\newpage
+\section*{Case Study}
+
+\begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/alb-map.png} 
+\caption{Distribution of Indian Ocean albacore tuna catches by assessment areas.}
+\label{fig:map}
+\end{figure}
+
+For Indian Ocean albacore, 1440 SS3 stock assessments were explored by fixing parameters (e.g. M, h, selection pattern) and data weighting. 
+
+
+\begin{table}[ht]
+\label{tab:grid}
+\caption{Operating Model Scenarios; Base Case values in bold.}  
+\begin{center}
+\label{tab:datasumm}
+\small
+
+\begin{tabular}{|lccc|}
+
+\hline
+Factor & {Levels (N)} & {$\prod$ N} & {Values} \\ %& {Prior} & {Weighting}\\
+\hline\hline
+{Natural mortality (M)& {5}}  & {  5}  & { 0202  \textbf{0303} 0404 0403 0402}    \\
+{Steepness of the stock-recruitment relationship}}& {3} 	 & {15}  & { \textbf{.7}; 0.8; 0.9} \\
+{Variability of recruitment (sigmaR)}& {2} 	 & { 30}  & { \textbf{0.4}; 0.6} \\
+{Effective Sampling Size of the length composition data (ESS)}& {3} & { 90}  & { 20; \textbf{50}; 100} \\
+{CV for fit to CPUE (cpuecv)}& {2} 	 & { 360}  & { 0.2;  \textbf{0.3}; 0.4; 0.5} \\
+{Yearly increase in catchability coefficient of CPUE (llq)}& {2} 	 & {  720}  & { \textbf{0\%}; 0.25\%} \\
+  {Selectivity (llsel)}& {2}}& {1440}} & { \textbf{logistic} double normal} \\
+\hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\newpage
+\section*{Methods}
+\begin{itemize}
+    \item Difficult to select models using metrics such as AIC. 
+    \item Retrospective analysis is commonly used to evaluate the stability of stock assessment estimates of model estimates such as stock biomass and exploitation level. Stability is measured using Mohn's $\rho$ a measure of bias. 
+    \item Shrinking estimates of stock status in the last year to the recent mean can help reduce Mohn's $\rho$. Shrinkage, in statistics, however, is used to reduce mean squared error (MSE), at the expense of bias. 
+    \item The use of model based quantities, however, means that bias can not be quantified, and may result in future predictions being being poor. We therefore extend retrospective analyses to include prediction. 
+\end{itemize}
+
+\newpage
+\input{figures}
+
+\clearpage
+\newpage
+\section*{Weighting}
+
+\begin{itemize}
+    \item W(Expert): Expert opinion, assigned “a-priori”, without consideration of model fit.
+    \item W(Convergence): Model convergence criteria of the estimation algorithm.
+    \item W(Fit): The fit of the model to the data.
+    \item W(Plausible parameters): The plausibility of the estimates of the parameters representing the
+hypothesis.
+    \item W(Plausible results): The plausibility of the model results.
+    \item W(Diagnostics): Reliability of the model based on diagnostics.
+\end{itemize}
+
+\clearpage
+\newpage
+\input{discussions}
+%\input{conclusions}
+
+\newpage\clearpage
+\bibliographystyle{abbrvnat}
+\bibliography{references.bib}
+
+\end{document}
+
+\clearpage
+\newpage
+\section{Tables}
+
+\begin{table}[!ht]
+\label{tab:grid}
+\caption{Operating Model Scenarios; Base Case values in bold.}  
+\begin{center}
+\label{tab:datasumm}
+\begin{tabular}{|lccc|}
+\hline
+& {\tiny Levels (N)} & {\tiny $\prod$ N} & {\tiny Values} \\ %& {\tiny Prior} & {\tiny Weighting}\\
+\hline\hline
+{\tiny Natural mortality (M)& {\tiny 5}}  & {\tiny   5}  & {\tiny  0202  \textbf{0303} 0404 0403 0402}    \\
+{\tiny Steepness of the stock-recruitment relationship}}& {\tiny 3} 	 & {\tiny 15}  & {\tiny  \textbf{.7}; 0.8; 0.9} \\
+{\tiny Variability of recruitment (sigmaR)}& {\tiny 2} 	 & {\tiny  30}  & {\tiny  \textbf{0.4}; 0.6} \\
+{\tiny Effective Sampling Size of the length composition data (ESS)}& {\tiny 3} & {\tiny  90}  & {\tiny  20; \textbf{50}; 100} \\
+{\tiny CV for fit to CPUE (cpuecv)}& {\tiny 2} 	 & {\tiny  360}  & {\tiny  0.2;  \textbf{0.3}; 0.4; 0.5} \\
+{\tiny Yearly increase in catchability coefficient of CPUE (llq)}& {\tiny 2} 	 & {\tiny   720}  & {\tiny  \textbf{0\%}; 0.25\%} \\
+{\tiny Selectivity (llsel)}& {\tiny 2}}& {\tiny 1440}} & {\tiny  \textbf{logistic} double normal} \\
+\hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[!ht]
+\caption{Mohn's $\rho$ for retrospective analysis.}  
+\label{tab:retro}
+\centering
+\begin{tabular}{rllr}
+  \hline
+ & run & variable & $\rho$ \\ 
+  \hline
+  1 & ... & stock & ... \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
+\end{document}
+
+\subsection{How to include Figures}
+
+First you have to upload the image file from your computer using the upload link the project menu. Then use the includegraphics command to include it in your document. Use the figure environment and the caption command to add a number and a caption to your figure. See the code for Figure \ref{fig:frog} in this section for an example.
+
+\subsection{How to add Comments}
+
+Comments can be added to your project by clicking on the comment icon in the toolbar above. % * <john.hammersley@gmail.com> 2016-07-03T09:54:16.211Z:
+%
+% Here's an example comment!
+%
+To reply to a comment, simply click the reply button in the lower right corner of the comment, and you can close them when you're done.
+
+Comments can also be added to the margins of the compiled PDF using the todo command\todo{Here's a comment in the margin!}, as shown in the example on the right. You can also add inline comments:
+
+\todo[inline, color=green!40]{This is an inline comment.}
+
+\subsection{How to add Tables}
+
+Use the table and tabular commands for basic tables --- see Table~\ref{tab:widgets}, for example. 
+
+\begin{table}
+\centering
+\begin{tabular}{l|r}
+Item & Quantity \\\hline
+Widgets & 42 \\
+Gadgets & 13
+\end{tabular}
+\caption{\label{tab:widgets}An example table.}
+\end{table}
+
+\subsection{How to write Mathematics}
+
+\LaTeX{} is great at typesetting mathematics. Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
+\[S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i\]
+denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
+
+
+\subsection{How to create Sections and Subsections}
+
+Use section and subsections to organize your document. Simply use the section and subsection buttons in the toolbar to create them, and we'll handle all the formatting and numbering automatically.
+
+\subsection{How to add Lists}
+
+You can make lists with automatic numbering \dots
+
+\begin{enumerate}
+\item Like this,
+\item and like this.
+\end{enumerate}
+\dots or bullet points \dots
+\begin{itemize}
+\item Like this,
+\item and like this.
+\end{itemize}
+
+\subsection{How to add Citations and a References List}
+
+You can upload a \verb|.bib| file containing your BibTeX entries, created with JabRef; or import your \href{https://www.overleaf.com/blog/184}{Mendeley}, CiteULike or Zotero library as a \verb|.bib| file. You can then cite entries from it, like this: \cite{greenwade93}. Just remember to specify a bibliography style, as well as the filename of the \verb|.bib|.
+
+You can find a \href{https://www.overleaf.com/help/97-how-to-include-a-bibliography-using-bibtex}{video tutorial here} to learn more about BibTeX.
+
+We hope you find Overleaf useful, and please let us know if you have any feedback using the help menu above --- or use the contact form at \url{https://www.overleaf.com/contact}!

@@ -1,0 +1,42 @@
+\subsubsection*{Generating delta-MVLN Kobe posteriors}
+
+Generate Kobe posteriors from a MVLN distribution requires the means and the variance-covariance matrix (VCM) of $log(SSB/SSB_{MSY})$ and $log(F/F_{MSY})$. Let $u = SSB/SSB_{MSY}$ and $v = F/F_{MSY}$  and $x = log(u)$ and $y = log(v)$ , then the $VCM$ has the form:
+    			
+\begin{equation}
+VCM_{x,y} =
+\begin{pmatrix}
+\sigma^2_x & cov_{x,y}  \\
+cov_{x,y} & \sigma^2_y
+\end{pmatrix}
+\end{equation*}
+
+where  is the variance of x,  is the covariance of y and  is the covariance of x and y.  The quantities that can be directly extracted from Stock Synthesis are: (1) MLEs, asymptotic standard errors (SE) and correlation of $SSB/SSB_{MSY}$  and $F/F_{MSY}$. 
+The construction of the  therefore requires to conduct a few normal to lognormal transformations. First, we approximate  and  as:
+
+\begin{equation}
+\sigma^2_x = \disp log\left(1+\left(\frac{SE_u}{u}\right)^2\right)  
+\quad 
+\end{equation}
+
+and
+
+\begin{equation}
+\sigma^2_x = \disp log\left(1+\left(\frac{SE_v}{v}\right)^2\right)  
+\quad 
+\end{equation}
+
+where  and  is the asymptotic standard error estimate for $u = SSB/SSB_{MSY}$ and $v = F/F_{MSY}$. Second, the covariance of x and y can then be approximated on log-scale by:
+
+\begin{equation}
+COV_{x,y} = \disp log \right{1+ \rho_{u,v} \sqrt{\sigma^2_x\sigma^2_y}\right \quad 
+\end{equation}
+
+where  donates the correlation of u and v.
+To generate the desired KPD for $SSB/SSB_{MSY}$  and $F/F_{MSY}$, we use a multivariate random generator, available in the R package ‘mvtnorm’, to obtain a large number (nsim = 10,000) of x and y pairs, such that
+
+\begin{equation}
+kobe_{x,y} = \disp MVN{\mu_{x,y},VCM_{x,y}) 
+\quad 
+\end{equation}
+
+where  is the vector of the MLEs x and y. The joint MVLN distribution of $-SSB/SSB_{MSY}$  and $-F/F_{MSY}$ is then obtained as the exponential of $kone_{x,y}$.

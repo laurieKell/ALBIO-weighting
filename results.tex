@@ -1,0 +1,26 @@
+\section*{Results}
+
+\begin{itemize}
+   \item Time series of catch, and spawning stock biomass and fishing mortality relative to $MSY$ target reference points are shown in figure \ref{fig:ts} for the base case (black line) the main effects. Catches have increased since the 1950s, and in the last two decades have varied just above $MSY$. This has resulted in an increase in $F$ and a decrease in $SSB$, although the stock is assessed to be above $SSB/B{MSY}$ and in only a few cases is $F$ above $F_{MSY}$.  
+
+   \item The production functions from which the $MSY$ reference points are derived are shown in figure \ref{fig:pf}. There are two main features a change in the shape of the production function with steepness, and an increase in scale as the natural mortality of adults increases or the length composition effective sample size decreases. The increase in adult M, the shape of the production function, results in the stock becoming more robust to exploitation, since to explain the catches the stock most be more productive, as seen by the increase of the slope at the origin, and hence population growth rate ($r$)  
+
+   \item Kobe phase plots (figure \ref{fig:kobe}) showing $SSB/B_{MSY}$ and $F/F_MSY$ in the terminal year are shown for the main effects with estimation error approximated using a multivariate log-normal, (cyan points denote the median) in figure \ref{fig:kobe-main}, and the base case is compared to the full grid in figure \ref{fig:kobe-bg}. The base case only gives a X\% chance of being in the green quadrant ($SSB \gt SSB_{MSY}$ and $F \le F_{MSY}$) when estimation error is considered. Although only 1 main effects (M0202?) is in the red quadrant, X\% are in the red quadrant when estimation error is considered, while when model error is considered this increases to Y\%. 
+   
+   \item Summary of Mohn's $\rho$ for the for the 1440 assessment models in the Indian Ocean albacore tuna grid, with main effects indicated by the vertical lines (Figure \ref{fig:mohn}). Four of the main effects fail the Mohn's $\rho$ test. There appears to be bi-modality with one mode centred on 0, i.e. some scenarios perform very well compared to the main effect and base case.
+   
+   \item This shows that uncertainty is underestimated if only estimation error is considered. This implies over-fitting and a subsequent reduction in variance at the expense of bias. Figure \ref{fig:runs} therefore compares the runs tests based on the model residuals to the prediction residuals for the entire grid. The number of crossings (figure \ref{fig:runs-cross}) and the length of the longest run (figure \ref{fig:runs-long} and the MASE (figure \ref{fig:mase}). Most of the scenarios and indices pass the crossings test, while performance for the length of the longest run is poorer. Indices 2 and 3 perform best. The value of Mohn's $\rho$ does not appear to have an impact. 
+   
+   \item The results for MASE from the model-free hindcast are different from the runs tests, in that Mohn's $\rho$ does appera to have an effect, i.e. a scenario and index has a value of $MASE \gt 1$ it also tends to have lower prediction skill.  While the relative performance of indices 2 and 3 is similar to the runs tests, index 4 now has good performance.
+   
+   \item The p-values by scenarios for MASE and the runs test are compared to Mohn's $\rho$ in figure \ref{fig:wts}. These show that in the sceanrios with good prediction skill indices perform better, based on MASE. The runs test does not appear to be an indicator of prediction skill, potentially due to overfitting. 
+
+   \item A Regression tree identifying factors that influence Mohn's $\rho$ for the 1440 assessment models is shown in Figure \ref{fig:tree}. This also shows the time series of SSB (\ref{fig:tree-b}), production functions (\ref{fig:tree-pf}), and time series of surplus production (\ref{fig:tree-sp}). The first split is on natural mortality of the adults, if this is equal to 0.4 then the Mohn's $\rho$ test is failed, otherwise it is passed. These, as seen above have lower estimated values of $B_{MSY}$ and $MSY$. The two exceptions are for M=0.3 and CPUE = 0.2 \& 0.3 when it fails, and M=0.4 and CPUE=0.5 \& ESS = 100 when it passes. In other word the biggest impact on prediction skill is M, since high M results in a large productive stock which is not supported by the hindcast. High M is only plausible if you ignore the CPUE and fit to the length data. 
+   
+  \item Weighted phase plots are presented in figure \ref{fig:phase-wt} for equal, simple skill based, and AIC weighting. These are for targets (Kobe \ref{fig:kobe-wt}) and limits (Majuro \ref{fig:majuro-wt}). 
+
+  \item Figure \ref{ref:grid} summarises a variety of summary metrics by adult M and steepness for Mohn's $\rho$. $SSB/B_{MSY}$ (\ref{fig:grid-bmsy}), $B_{lim}$ (\ref{fig:grid-blim}), $F/F_{MSY}$ (\ref{fig:grid-fmsy}), $r$ (\ref{fig:grid-r}), $K$, (\ref{fig:grid-k}), $p$, (\ref{fig:grid-p}), $sd(sp)$, (\ref{fig:grid-sp}), and Population doubling time (\ref{fig:grid-dt}). There is some modality due to catchability, particulary in current biomass status and $K$.  Again the biggest impact is adult M. 
+
+\end{itemize}
+
+

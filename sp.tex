@@ -1,0 +1,23 @@
+\subsubsection*{Surplus Production}
+
+In age-structured models, there is an implicit production function, and changes in productivity can occur due to process error modelled as variability in recruitment and selection pattern. In the biomass-dynamic models with an explicit production function, process error is modelled explicitly.
+
+In age-structured models, density dependence is mainly accounted for by the stock-recruitment relationship. \cite{cury2014resolving}, however, showed that in most cases the stock-recruitment relationship used to estimate productivity and determine reference points, has poor estimation/predictive power and the environment has a larger effect on productivity, a result confirmed by other studies \citep[e.g][]{szuwalski2015examining}, and observed 100 years ago by \cite{hjort1914fluctuations}. Whereas in ICCAT assessments growth, maturation and natural mortality are assumed not to have varied despite the significant changes in the environment and stock biomass seen.
+
+\cite{hilborn2001calculation} therefore recommended looking at patterns of change in surplus production (SP) since these may contain evidence of changes in the growth and mortality components of production, which are typically not represented in models currently used for stock assessment and management. 
+
+Walters et al. (2008) argued that plotting of surplus production (SP) against biomass (B) should be one of the basic pieces of information presented in all stock assessments since the plots provide a check on whether there has been non-stationarity in the annual surplus production, i.e. whether similar B levels have exhibited similar SP at different historical times. This is important for management as it checks whether predictions of changes in biomass ($B_{t+1}−B_t$) can be made reliably based on catch and Bt. Plots of SP v B therefore provide a summary of stock performance and include effects not necessarily included in stock assessment models.
+
+The effects not included in the production function used to predict SP can be modelled by a process error term # t.
+
+\begin{equation} 
+B_{t+1} = B_t − C_t + SP_t + \epsilon_t
+\end{equation}
+
+Process error on biomass can account for model structural uncertainty as well as natural variability of stock biomass due to stochasticity in recruitment, natural mortality, growth, and maturation \citep{article{Meyer1999}.
+
+We, therefore, examine the relationships between surplus production and biomass . To do this, we estimate annual surplus production as the change in stock size plus catch (i.e. $B_t \minus B_{t+1} + C_t$. We then plot the resulting time series of S and B to identify patterns of variation in S. The process error was then sampled from SS3 stock trajectories as the difference between the deterministic expectation of biomass and its stochastic realisation, such that:
+
+\begin{equation} 
+\epsilon_t = SB_{t+1} - (SB_t + SP_t − C_t) 
+\end{equation}
