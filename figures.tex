@@ -29,38 +29,21 @@
         \caption{Kobe phase plots showing spawning biomass ($B$) and fishing mortality ($F$) relative to $MSY$ target reference points. Within model uncertainty was approximating using multivariate log-normal distribution derived from Hessian matrix (MVLN) with cyan points denoting the median}\label{fig:kobe}
 \end{figure}
 
+
+
+
 \clearpage
 \newpage
 \begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/mohn3-1.png}  \caption{Summary of Mohn's $\rho$ for the for the 1440 assessment models in the Indian Ocean albacore tuna grid, with main effects indicated by the vertical lines.} 
 \label{fig:mohn}       
 \end{figure}
 
-\begin{figure}
-    \begin{subfigure}[a]{0.35\textwidth}
-    \includegraphics[width=\linewidth]{figures/run-cross-1.png}
-    \caption{Number of crossings - minimum expected number of crossings; note reversed x-axis.}
-    \label{fig:runs-cross} 
-    \end{subfigure}%
-    \begin{subfigure}[b]{0.35\textwidth}
-    \includegraphics[width=\linewidth]{figures/run-long-1.png}
-    \caption{Longest run - maximum expected run length.}
-    \label{fig:runs-long}
-    \end{subfigure}%
-    \begin{subfigure}[c]{0.35\textwidth}
-    \includegraphics[width=\linewidth]{figures/mase-1.png}
-    \caption{MASE.}
-    \label{fig:mase}
-    \end{subfigure}%
- 
-\caption{}\label{fig:runs}
-\end{figure}
-
 
 %\begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/cf-1.png} \caption{Summary of weighting diagnostics.}\label{fig:wts} \end{figure}
 
-\begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/ggpair-1.png} \caption{Correlations between weighting diagnostics.}
-\label{fig:wts}       
-\end{figure}
+%\begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/ggpair-1.png} \caption{Correlations between weighting diagnostics.}
+%\label{fig:wts}       
+%\end{figure}
 
 \newpage
 \begin{figure}[!ht]
@@ -95,6 +78,8 @@
 \end{figure}
 
 
+\begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/aic-1.png} \caption{AIC}\label{fig:aic} \end{figure}
+
 \begin{figure}
         \begin{subfigure}[b]{0.5\textwidth}
                 \includegraphics[width=\linewidth]{figures/kobe-mohn3-2.png}
@@ -113,6 +98,7 @@
 
 %\begin{figure}[ht!]\centering\includegraphics[width=1\textwidth]{figures/param-box-mohn3-1.png}\caption{Summary statistics, will re-do for $F/F_{MSY}$, $B/B_{MSY}$, $r$, $K$, $p$ and $sd(sp)$, and population doubling time.}\label{fig:smry}\end{figure}
 
+\iffalse
 \newpage
 \begin{figure}[!ht]
 	\centering
@@ -164,11 +150,23 @@
 	\caption{}
 	\label{ref:grid}
 \end{figure}
-
-\iffalse
-\begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/pf-1.png} 
-\caption{Surplus Production by steepness and mature natural mortality}
-\label{fig:sp}       
-\end{figure}
 \fi
+
+
+\begin{figure}
+        \begin{subfigure}[b]{0.5\textwidth}
+           \includegraphics[width=\linewidth]{figures/cpue.png}
+                \caption{CPUE}
+                \label{fig:mase-u}
+        \end{subfigure}%
+                \begin{subfigure}[b]{0.5\textwidth} \includegraphics[width=\linewidth]{figures/mase-1.png}
+                \caption{MASE}
+                \label{fig:mase-score}
+        \end{subfigure}%
+        \caption{}\label{fig:mase}
+\end{figure}
+
+
+\begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/xxx-1.png} \caption{mmmm.}\label{fig:xxx} \end{figure}
+
 
