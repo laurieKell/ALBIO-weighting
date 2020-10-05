@@ -1,0 +1,37 @@
+\section*{Results}
+
+\begin{itemize}
+   \item Time series of catch, and spawning stock biomass and fishing mortality relative to $MSY$ target reference points are shown in figure \ref{fig:ts} for the base case (black line) and the main effects. Catches increased since the 1950s, and in the last two decades have varied just above $MSY$. This resulted in a corresponding increase in $F$ and decrease in $SSB$, although in only a few cases is $F$ above $F_{MSY}$ and the stock is assessed to be above $SSB/B{MSY}$.  
+
+   \item The production functions from which the equilibrium reference points are derived are shown in figure \ref{fig:pf}. The main features are change in the shape of the production as the natural mortality of adults increases and a reduction in scale as the length composition effective sample size decreases. Steepness has less of an effect, a decrease in virgin biomass is seen as steepness increases. Juvenile M had no effect as catches are mainly of adults. The increase in adult M results in the stock becoming more robust to exploitation, since to explain the catches the stock most be more productive, as seen by the increase of the slope at the origin, and hence population growth rate ($r$).   
+
+   \item Kobe phase plots (figure \ref{fig:kobe}) showing $SSB/B_{MSY}$ and $F/F_MSY$ in the terminal year are compared for the main effects with estimation error approximated using a multivariate log-normal, (cyan points denote the median) in figure \ref{fig:kobe-main}. The base case is compared to the full grid in figure \ref{fig:kobe-bg}. Kobe phase plots are used to make statements of probability about stock status relative to target reference points. Only 1 main effects (M0202?) is in the red quadrant ($SSB \gt SSB_{MSY}$ and $F \le F_{MSY}$), i.e. $7\%$. When estimation error is considered the base case gives a X\% chance of being in the green quadrant, which increases to Y\% when all main effects and estimation is considered, and to Z\% when all scenarios are considered. 
+   
+   \item This shows that uncertainty is underestimated if only estimation error is considered? This implies over-fitting and a subsequent reduction in variance at the expense of bias. 
+   
+   \item Summaris of Mohn's $\rho$ for the for the 1440 scenarios, with main effects indicated by the vertical lines are shown for the retrospective analysis (Figure \ref{fig:mohn-1}) and the 3-step ahead projections (Figure \ref{fig:mohn}). Over half of the main effects fail the Mohn's $\rho$ test. There is bi-modality with one mode centred on 0, i.e. some scenarios perform very well. The main effect and base case, however are centred around the lefthand mode. As the time step increases more scenarios fall below the Mohn's $\rho$ threshold of -0.15. 
+
+   %Figure \ref{fig:runs} therefore compares the runs tests based on the model residuals to the prediction residuals for the entire grid. The number of crossings (figure \ref{fig:runs-cross}) and the length of the longest run (figure \ref{fig:runs-long} and the MASE (figure \ref{fig:mase}). Most of the scenarios and indices pass the crossings test, while performance for the length of the longest run is poorer. Indices 2 and 3 perform best. The value of Mohn's $\rho$ does not appear to have an impact. 
+   
+   %\item The results for MASE from the model-free hindcast are different from the runs tests, in that Mohn's $\rho$ does appera to have an effect, i.e. a scenario and index has a value of $MASE \gt 1$ it also tends to have lower prediction skill.  While the relative performance of indices 2 and 3 is similar to the runs tests, index 4 now has good performance.
+   
+   %\item The p-values by scenarios for MASE and the runs test are compared to Mohn's $\rho$ in figure \ref{fig:wts}. These show that in the sceanrios with good prediction skill indices perform better, based on MASE. The runs test does not appear to be an indicator of prediction skill, potentially due to overfitting. 
+
+   \item A Regression tree identifying factors that influence Mohn's $\rho$ for the grid is shown in Figure \ref{fig:tree}. The corresponding emergent properties i.e. time series of SSB (\ref{fig:tree-b}), production functions (\ref{fig:tree-pf}), and time series of surplus production (\ref{fig:tree-sp}) are also shown. The first split is on natural mortality of the adults, if this is bot equal to 0.4 then the Mohn's $\rho$ test is passes (red). The two exceptions are for M=0.3 and CPUE = 0.2 \& 0.3 when it fails, and M=0.4 and CPUE=0.5 \& ESS = 100 when it passes. In other word the biggest impact is M. High M is only plausible if you ignore the CPUE and fit to the length data. 
+  
+   \item The the number of crossings - the number of expected crossing (\label{fig:runs}) and MASE ( \label{fig:mase}) by CPUE series are summarised by the Mohn's $\rho$ test. The relationship between Mohn's $\rho$, $-2log(p)$ for the runs test and MASE is summarised in figure \ref{fig:xxx}. A high value of a combine p-value and $\rho$ shows that both metrics are in agreement, and since $\rho<0.2$ that the tests are favourable. For example inspection of the "good" scenarios in pink shows that the fit is good but there is poorer prediction skill overall.
+   
+   \item The log likelihoods, AIC and number of parameters are shown in figure \ref{fig:aic}.
+  
+  \item Weighted phase plots for targets and limits are presented in figure \ref{fig:phase-wt} for equal, simple skill based, and AIC weighting. 
+ 
+   %\item Developing an Observation error model is also a part of conditioning an operating model. Therefore figure \ref{fig:mase} shows the indices of abundance (\ref{fig:mase-u}) and their values of MASE (\ref{fig:mase-score}). Many of the indices have gaps or do not cover the entire period and so were not considered. Of the remaining indices index 3 for quarters 2 and 3 were considered as these cover the main area of distribution of the stock and had the best values of MASE for all indices \item Figure \ref{fig:xxx}.
+   
+   %\item Figure \ref{fig:xxx} shows the relationship between MASE and Mohn's $\rho$, broken up by $M$. The bimodality is driven by M, i.e. MASE increases with M of adults. To explore the impact of bias in the index the results were also broken out by catchability; MASE  improves if a trend in catchability is assumed. 
+   
+  
+  %\item Figure \ref{ref:grid} summarises a variety of summary metrics by adult M and steepness for Mohn's $\rho$. $SSB/B_{MSY}$ (\ref{fig:grid-bmsy}), $B_{lim}$ (\ref{fig:grid-blim}), $F/F_{MSY}$ (\ref{fig:grid-fmsy}), $r$ (\ref{fig:grid-r}), $K$, (\ref{fig:grid-k}), $p$, (\ref{fig:grid-p}), $sd(sp)$, (\ref{fig:grid-sp}), and Population doubling time (\ref{fig:grid-dt}). There is some modality due to catchability, particulary in current biomass status and $K$.  Again the biggest impact is adult M. 
+
+\end{itemize}
+
+

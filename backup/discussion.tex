@@ -1,0 +1,55 @@
+\section*{Discussion}
+
+\subsection*{Summary}
+
+\begin{itemize}
+    \item The choice of scenarios determines the results if equal weighting is used. Therefore selection of scenarios must be justified otherwise results are meaningless as they depend on the uncritical choice of the group.
+    \item The cookbook approach, i.e. based on detours, is OK for selecting a Base Case, but inadequate for the analysis of a grid. In the latter case an objective procedure that can be automated is required.
+    \item The Base Case needs to be carefully chosen, main effects agreed and screened. I.e. via elicitation so all views are represented, and by a method such as hindcasting.
+    \item The Base Case has a worse Mohn's $\rho$ than the main effects. This implies that the Base Case was incorrectly chosen, since if the Base Case had been run first it would have been rejected.
+    \item Mohn's $\rho$, has two modes,  the main effects are distributed around the mode with $\rho < -0.2$, the other mode is to the right of the main effects and has a value of $0.0$. This suggests that the main effects were also incorrectly chosen.
+    \item The "best assessment", i.e. the one with a Mohn's $\rho$ closest to 0 is where ESS and CPUE CV are both large. 
+    \item Five M scenarios were run (i.e. "0202", "0303", "0404", "0403", "0402"). The scenarios with M=0.4 for adults failed the Mohn's $\rho$ test, while juvenile M had no effect, as catches are mainly of adults. Therefore only 2 M scenarios are needed, i.e. "0202" and "0303". 
+    \item The most important scenario was based on an interaction, as the main effects for CPUE and ESS both move Mohns $\rho$ in the same direction, i.e. they are confounded. Therefore an alternative would be rather than treating ESS and CPUE CV as independent factors to have agreed a relative weighting scenario.
+    \item M is important as it affects the time series dynamics, and response to management.
+    \item Need to look at leave-one-out independently by series of both CPUE and lengths. At least for the Base Case and then the main effects to allow potential interactions to be explored. I.e. if high M and ESS and CPUE CV all had the same effect this could imply an important interaction, which could be evaluated by looking at 2nd order interactions. It will also help identify data conflicts and the signal/noise ratio of the different series, and the consequences of high M making year-class signals more variable. 
+    \item Need to look at model-free validation, as this is the only objective method for model validation, also allows selection of series for use in MSE and conditioning of OEM
+    \item Feedback, i.e. where management action seeks to respond to changes in system state and readjust the control accordingly, does not require great prediction skill. For example it was shown that Mohn's $\rho$ was better for a 1-year than a 3 year step ahead, i.e. the ability to assess the consequences of management 1 year head is is better than the ability to assess the consequences 3 years ahead. Therefore to ensure limits are not breached a 1 year assessment cycle may perform better than a three year cycle. There may be a trade-off, however, in inter-annual catch variability. This can be evaluated using MSE. However, the results of MSE will depend on the choice of scenarios.    
+    
+    \item The approach can be used with an ensemble of models to develop robust advice, either for estimates of current stock status or by conducting MSE. 
+    \item Backtesting is a form of hindcasting and is used for evaluating the relative performance of alternatives strategies by comparing these to historical results. For example it is used in financial risk modelling to assess the performance of a trading or investment strategy. This requires simulating past conditions which is simple with the hindcast. Conducting MSE as part of the backtest allows the impact of feedback on historical catches and stock status to be evaluated. The problem is that it is possible to find a strategy that would have worked well in the past, but will not work well in the future. Therefore, although a backtest MSE is useful, particularly as it allows stakeholders to see what the consequences would have been if a different strategy had been employed, it is not sufficient to ensure the robustness of a strategy to be applied in the future. Despite this limitation, backtesting provides insights that may not be available when models and strategies are tested on simulated data alone and can be performed before conducting MSE for future years.
+    \item Another field of applications is to use the hindcast procedure to weight multi-model ensembles using skill-based weighting. Here, a prediction skill score can be used to assign more weight on the better performing models as this has been found to improve forecasts \parencite[e.g.][]{casanova2009weighting}. This can be done to weight estimates of current status relative to reference points, or weight operating models. Testing the approach on an actual case study first was informative as it provides the insight necessary to set up a study on synthetic data.
+\end{itemize}
+
+ \begin{description}
+   \item[Scenarios] overfitted and biased
+   \item[Important] to consider model error, simple prediction skill and model-free hindcast
+   \item[M] has the biggest impact
+   \item[Conflict] between Length Comps and CPUE.
+   \item[Base case and main effects] many main effects had poor prediction skill, these could have been excluded. 
+   \item[Interactions?] yes for M and ESS/CPUE weighting.
+\end{description}
+   
+\begin{description}
+    \item[Screening procedure]~
+    \begin{itemize}
+        \item The screening process includes checking goodness of fit diagnostics and prediction skill. I.e. use runs test to look for goodness of fit and data conflicts, then prediction residuals and MASE to check for overfitting, and a model-based hindcast to estimate simple prediction skill.
+        \item First propose and screen a base case, then main effects and then interactions. 
+       \item The procedure can be used for skilled based weighting as well as screening.
+    \end{itemize}
+  \item[Operating Model Conditioning]~
+    \begin{itemize}   
+        \item Does the OM has to have prediction skill? 
+        \item The OEM has to be developed as part of the OM. Therefore compare runs tests across scenarios? i.e. are there alternative equally plausible hypotheses? If so are there potential problems with the OEM, since the MP has to use the same pseudo data what if for an empirical HCR the best index depends on the OM?
+    \item After fitting, other questions are grid search or random search? and how to model future processes such as recruitment, selectivity, and catchability? To avoid answering these questions in the 1st stage we recommend the use of backtesting, i.e. extending the model based hindcast to include feedback (Next paper).
+  \end{itemize}
+
+    \item[Other issues include]~
+    \begin{itemize}
+        \item Estimation v model error
+        \item Emergent properties, is it the choice of OM scenario less important than the properties of the OM. For example in an OM the similar values for reference points, the form of the production function, current status, and future variability can be generated by different OM hypotheses. While, the performance of a black box controller will be dictated by factors such as trends in the index and system properties such as population doubling time and the level of process error. 
+        %\item Use LASSO to identify what matters.
+        \item %The nature of the indices is also important; for example even if a stock had low inter-annual variability, an index could be highly variable if it was based on juveniles or there were large changes in spatial distribution between years. 
+        It is necessary to look at the robustness of management strategies to the nature of the time series of the stock (as represented by the OM) and to the characteristics of the data collected from it. This will require tuning by constructing a reference set of OMs and then tuning the management strategy to secure the desired trade-offs. The work so far can be considered as focusing first on developing management strategies that perform satisfactorily for a reference set; the next step is to develop case-specific strategies.
+\end{itemize}
+\end{description}

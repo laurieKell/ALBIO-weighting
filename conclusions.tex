@@ -1,5 +1,13 @@
 \section{Conclusions}
 
+I totally agree on the automation, to ensure objectively and transparency. Its like MSE where you have to agree the OMs and the MP selection criteria in advance.
+
+Also like MSE, I think we need a limited number of complementary but non-redundant metrics. For example are the runs tests,  RMSE and Mohn's rho telling us the same thing? So we are give a single attribute extra weight? Imagine you have a model with a biased index, i.e. a data conflict, that fails the runs and RMSE tests. When you do retrospective you are removing biased points so you will get a large absolute value for Mohn's rho. In contrast MASE for a model free quantity will hopefully be telling you something else. It would be best to recognise that data conflict at the start.
+
+For this reason I  agree with Mark that ideally a model should pass all diagnostics but recognise that this isn't always possible. For example if a model fails to converge that could indicate data conflicts and model misspecification, that will bite you later if not fixed. For example when you start removing points example in the retrospective analysis and hindcasts.
+
+Also while the delta-MVLN approach is useful, I would also like to use estimation error to check bias, i.e. by looking at prediction residuals.
+
 \begin{itemize}
     \item In the stock assessment process hypotheses about states of nature are represented by alternative model structures and fixed parameters. Even with a design of 1440, as in this example, the choice of scenarios is arbitrary and the posterior distributions are often multi-modal.
     
@@ -12,6 +20,8 @@
     \item Shrinking estimates of stock status in the last year to the recent mean can help reduce Mohn's $\rho$. Shrinkage, in statistics, however, is used to reduce mean squared error (MSE), at the expense of bias. 
     
     \item The use of model based quantities, however, means that bias can not be quantified, and may result in future predictions being being poor. We therefore extend retrospective analyses to include prediction. 
+
+    \item When developing the design for ensembles or OMs first it is necessary to choose a base case, the main effects and interactions. A problem is that hypotheses are likely to be confounded e.g. i) is High M and low steepness realistic? ii) relative weighting of ESS and CPUE CV; and iii) dome shaped selection or senescence. If we had used the approach proposed would our conclusions have differed? Use of feedback relaxes requirement for prediction skill, ii) helps identify series for use in OEM, iii) what if OM scenarios have different "best" indices?
 
     %\item For models to be valid the situation being modelled must be observable and measurable. Therefore it is only possible to validate models on observations, the next step is to use model free hindcasting.
      

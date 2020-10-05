@@ -6,6 +6,13 @@
 \label{fig:map}
 \end{figure}
 
+
+\begin{figure}
+        \centering\includegraphics[width=0.75\textwidth]{figures/cpue.png}
+        \caption{Indices of relative abundance for long line catch per unit effort by region and season.}
+        \label{fig:u}
+\end{figure}
+
 \begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/main-trends-1.png} \caption{Time series of spawning stock biomass and fishing mortality relative to $MSY$ target reference points for the main effects of the Indian Ocean albacore tuna assessment model grid.}
 \label{fig:ts}
 \end{figure}
@@ -16,25 +23,26 @@
 \end{figure}
 
 \begin{figure}
-        \begin{subfigure}[b]{0.5\textwidth}
+     \begin{subfigure}[b]{0.5\textwidth}
                \includegraphics[width=\linewidth]{figures/kobe-main-1.png}
                 \caption{Main effects with estimation error.}
                 \label{fig:kobe-main}
-        \end{subfigure}%
-                \begin{subfigure}[b]{0.5\textwidth}
+     \end{subfigure}%
+       \begin{subfigure}[b]{0.5\textwidth}
                 \includegraphics[width=\linewidth]{figures/kobe-bg-1.png}
                 \caption{Reference case and grid with model.}
                 \label{fig:kobe-bg}
-        \end{subfigure}%
-        \caption{Kobe phase plots showing spawning biomass ($B$) and fishing mortality ($F$) relative to $MSY$ target reference points. Within model uncertainty was approximating using multivariate log-normal distribution derived from Hessian matrix (MVLN) with cyan points denoting the median}\label{fig:kobe}
+     \end{subfigure}%
+    \caption{Kobe phase plots showing spawning biomass ($B$) and fishing mortality ($F$) relative to $MSY$ target reference points. Within model uncertainty was approximating using multivariate log-normal distribution derived from Hessian matrix (MVLN) with cyan points denoting the median}\label{fig:kobe}
 \end{figure}
-
-
-
 
 \clearpage
 \newpage
-\begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/mohn3-1.png}  \caption{Summary of Mohn's $\rho$ for the for the 1440 assessment models in the Indian Ocean albacore tuna grid, with main effects indicated by the vertical lines.} 
+\begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/mohn-hist-1-1.png}  \caption{Summary of Mohn's 1-step $\rho$ for the for the 1440 assessment models in the Indian Ocean albacore tuna grid, with main effects indicated by the vertical lines.} 
+\label{fig:mohn-1}       
+\end{figure}
+
+\begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/mohn-hist-1.png}  \caption{Summary of Mohn's $\rho$ 3-step for the 1440 assessment models in the Indian Ocean albacore tuna grid, with main effects indicated by the vertical lines.} 
 \label{fig:mohn}       
 \end{figure}
 
@@ -73,26 +81,8 @@
 		\caption{Surplus Production}
 		\label{fig:tree-sp}
 	\end{subfigure}
-	\caption{Mohn's $\rho$}
+	\caption{Mohn's $\rho$ classification tree with emergent properties.}
 	\label{fig:tree}
-\end{figure}
-
-
-\begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/aic-1.png} \caption{AIC}\label{fig:aic} \end{figure}
-
-\begin{figure}
-        \begin{subfigure}[b]{0.5\textwidth}
-                \includegraphics[width=\linewidth]{figures/kobe-mohn3-2.png}
-                \caption{Kobe}
-                \label{fig:kobe-wt}
-        \end{subfigure}%
-        \begin{subfigure}[b]{0.5\textwidth}
-                \includegraphics[width=\linewidth]{figures/majuro-mohn3-all-1.png}
-                \caption{Majuro}
-                \label{fig:majuro-wt}
-        \end{subfigure}%
-        \caption{Phase plots for all 1440 grid models, with equal, AIC, and skill weighting identifying models that pass the Mohn's $\rho$ test for hindcasts with 3 year ahead forecasts .}
-        \label{fig:phase-wt}
 \end{figure}
 
 
@@ -150,8 +140,6 @@
 	\caption{}
 	\label{ref:grid}
 \end{figure}
-\fi
-
 
 \begin{figure}
         \begin{subfigure}[b]{0.5\textwidth}
@@ -165,8 +153,41 @@
         \end{subfigure}%
         \caption{}\label{fig:mase}
 \end{figure}
+\fi
 
 
-\begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/xxx-1.png} \caption{mmmm.}\label{fig:xxx} \end{figure}
+\begin{figure}
+        \begin{subfigure}[b]{0.5\textwidth}
+           \includegraphics[width=\linewidth]{figures/runs.length-1.png}
+                \caption{Runs test length of longest run - maximum run}
+                \label{fig:runs}
+                \end{subfigure}%
+                \begin{subfigure}[b]{0.5\textwidth} \includegraphics[width=\linewidth]{figures/mase-1.png}
+                \caption{MASE}
+                \label{fig:mase}
+        \end{subfigure}%
+        \caption{Summary of runs test and MASE.}\label{fig:mase}
+\end{figure}
+
+
+
+\begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/cluster.tree-1.png} \caption{Comparison of Mohn's $\rho$ and $-2log(p)$ for runs test and Diabold Marino test.}\label{fig:xxx} \end{figure}
+
+\begin{figure}[ht!]\centering\includegraphics[width=0.75\textwidth]{figures/aic-1.png} \caption{Loglikelihood and AIC}\label{fig:aic} \end{figure}
+
+\begin{figure}
+        \begin{subfigure}[b]{0.5\textwidth}
+                \includegraphics[width=\linewidth]{figures/kobe-mohn3-1.png}
+                \caption{Kobe}
+                \label{fig:kobe-wt}
+        \end{subfigure}%
+        \begin{subfigure}[b]{0.5\textwidth}
+                \includegraphics[width=\linewidth]{figures/majuro-mohn3-all-1.png}
+                \caption{Majuro}
+                \label{fig:majuro-wt}
+        \end{subfigure}%
+        \caption{Phase plots for all 1440 grid models, with equal, AIC, and skill weighting identifying models that pass the Mohn's $\rho$ test for hindcasts with 3 year ahead forecasts .}
+        \label{fig:phase-wt}
+\end{figure}
 
 
