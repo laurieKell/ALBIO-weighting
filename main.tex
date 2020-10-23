@@ -35,6 +35,25 @@
 
 \maketitle
 
+Dear All
+
+This is the old "VPA" problem, and demonstrates the need for validation, is a reason for MSE, and illustrates the difficulty with finding a "best" assessment.
+
+In VPA there is little information to estimate incoming year classes, i.e. recruitment or F/selectivity. Therefore shrinkage is often used to reduce variability in terminal year estimates. This was driven by a need to reduce retrospective patterns, a main criteria for acceptance of an assessment in ICES. To do this often shrinkage is used.  In statistics shrinkage is used to reduce variance at the expense of bias. Using model based quantities, however, means that in a retrospective analysis bias is unknown.  Therefore the easiest way to get rid of a retrospective pattern is to ignore the data! That is why to validate a model you must use observations to validate prediction skill.
+
+An implicit lack of prediction skill is recognised by management frameworks, since many stocks are assessed annually and management adjusted as required. Or in other words feedback is used. MSE is a formal way of modelling feedback. The next issue with MSE is conditioning Operating Models, and a key issue is the observation error model and when conditioning OMs MASE should be used to identify indices with good prediction skill.
+
+
+
+Henning,
+Such a study on role of composition data in recruitment process estimation would be helpful.
+
+When there is moderate process error in recruitment (sigmaR >0.5) and the composition data are moderately informative (effective N 25-50) and Z<0.5, then I find that during historical years the composition data are highly informative about recruitment because their information content reinforces across years to measure cohort strength.  But at the end of the time series, the composition data cannot reinforce across years so the model tendency is to estimate spuriously high/low recdevs to match the data. So, I think there may be a need for a new model control that reduces input N for composition data near end of the time series such that the sigmaR penalty dominates and recdevs then stay closer to 0.0.
+
+But that raises a bigger issue: what should the expected recruitment be near the end of the time series. This is especially problematic for assessments that use a fixed steepness value and do not use autocorrelation in recdevs.  These models force the ending year and forecast recruitments to by highly determined by model structure and not by data.  There should be a way to guide the ending years/forecast recruitments to be closer to well-estimated preceding recruitments.
+
+
+
 \begin{abstract}
 
 %The adoption of the Precautionary Approach to fisheries management requires a formal consideration of uncertainty. In the stock assessment process uncertainty about resource dynamics are commonly represented by alternative model structure, datasets and parameters. The use of integrated assessment models has meant that fitting to all available data has become commonplace as scientists seek to use the models to capture all knowledge about stock size and productivity. Therefore, ensembles of models are increasingly being implemented with scenarios based on fixing hard to estimate parameters, and to explore data weighting. The same approach is sued for conditioning Operating Models for use in Management Startegy Evaluation. Key questions to answer in both cases is does the model fit the data, are the resource dynamics plausible, and are the results robust. 
@@ -49,6 +68,9 @@ The adoption of the Precautionary Approach to fisheries management \citep[PA,][]
 Integrated analysis combines several sources of data into a single model by a joint likelihood \citep[e.g][]{maunder2013review}. Many important process which impact estimates of quantities of management interest, however, may be misspecified and result in data conflicts \citep{carvalho2017can}. Common solutions are to develop alternative models with different assumptions and structures and to down weighted or eliminated conflicting data.  The different scenarios then need to be validated \citep[e.g.][]{kell2020validation}. Validation, however, is not a binary proces, i.e. pass or fail, as models often represent a continuum between these extremes. This means that it is not always possible to choose a "best assessment", and instead results from multiple models are combined \citep{brodziak2005model} for example in the advice framework of the tuna Regional Fisheries Management Organisations \citep[RFMOs][]{kell2016quantification}. When combining multiple models parameter estimates are usually intermediate to those obtained from the individual models. However, the most likely parameter values may not be intermediary but occur at one of the apparent extremes \citep{schnute1993analysis}. 
 
 The choice and weighting of scenarios therefore has consequences for advice as often divergent views and beliefs mean that uncertainties can be used to support stakeholder positions in order to strengthen or weaken management measures \citep{fromentin2014spectre}. In addition management frameworks stock indicators are permitted to fluctuate around targets but limits should not be breached, this means that the distributions of derived estimates are important. For example to achieve Marine Stewardship Council (MSC) certification, there need to be at least a 50\% probability of being above a biomass and below a fishing mortality target, but at least a 95\% probability of avoiding a limit. %The choice and weighting of stock assessment scenarios can therefore have economic consequences since if a fishery achieves MSC certification there is a price premium. 
+
+%This is the old "VPA" problem, and demonstrates the need for validation, is a reason for MSE, and illustrates the difficulty with finding a "best" assessment. In VPA there is little information to estimate incoming year classes, i.e. recruitment or F/selectivity. Therefore shrinkage is often used to reduce variability in terminal year estimates. This was driven by a need to reduce retrospective patterns, a main criteria for acceptance of an assessment in ICES. To do this often shrinkage is used.  In statistics shrinkage is used to reduce variance at the expense of bias. Using model based quantities, however, means that in a retrospective analysis bias is unknown.  Therefore the easiest way to get rid of a retrospective pattern is to ignore the data! That is why to validate a model you must use observations to validate prediction skill. An implicit lack of prediction skill is recognised by management frameworks, since many stocks are assessed annually and management adjusted as required. Or in other words feedback is used. MSE is a formal way of modelling feedback. The next issue with MSE is conditioning Operating Models, and a key issue is the observation error model and when conditioning OMs MASE should be used to identify indices with good prediction skill.
+
 
 The ability of stock stock assessment models to make long-term projections is generally poor, therefore many stocks are assessed annually and management adjusted as required. Or in other words feedback is used where information about the difference between the current and a reference level is used to alter the gap \citep{ramaprasad1983definition}. MSE is a formal way of modelling feedback. When conducting MSE a set of operating models (OMs) are conditioned on data and knowledge to represent hypothesis about resource status and dynamics. A common way to condition OMs is by fitting an integrated assessment model to the available data \citep{sharma2020trfmo}. The OMs are then used to evaluate the performance of strategies modelled as Management Procedures (MPs), the combination of monitoring data, analysis method, reference points, harvest control rule and management measure. MPs act as feedback controllers, the aim of which is to keep the state of the system within agreed bounds despite uncertainty about system dynamics. This negates the need to find a "best assessment", as the MP may be a black box with no knowledge of the assumed processes, requiring only knowledge about the behavior of the system. 
 
@@ -84,6 +106,11 @@ The base case considered in the stock assessment session was then extended by co
 
 
 \subsubsection*{Estimation Error}
+
+Observation uncertainty is related to parameter uncertainty as the parameters are estimated from the observations and the variance assumed for the observations dictates the parameter uncertainty.
+
+High assessment uncertainty can indicate a lack of contrast in  the input data or violation of model assumptions.
+
 
 Estimation error was generating using a delta-multivatiare lognormal approach (delta-MVLN). This takes the means and variance-covariance matrix of $log(SSB/SSB_{MSY})$ and $log(F/F_{MSY})$. Let $u = SSB/SSB_{MSY}$ and $v = F/F_{MSY}$  and $x = log(u)$ and $y = log(v)$ , then the $VCM$ has the form:
     			
